@@ -14,6 +14,7 @@ static void sleep_window_load(Window *window) {
   Layer *window_layer = window_get_root_layer(window);
   GRect bounds = layer_get_bounds(window_layer);
   static char buffer[8];
+  int sleepHours = getMetric(HealthMetricSleepSeconds)/3600;
 
 
   // Create the TextLayers with specific bounds
@@ -45,7 +46,7 @@ static void sleep_window_load(Window *window) {
       GRect(0, bounds.size.h-(icon_size+bottom_margin*2)*2, bounds.size.w, bounds.size.h/4));
   text_layer_set_background_color(s_NUM_text_layer, GColorClear);
   text_layer_set_text_color(s_NUM_text_layer, GColorBlack);
-  snprintf(buffer,sizeof(buffer),"%d",getMetric(HealthMetricSleepSeconds));
+  snprintf(buffer,sizeof(buffer),"%d",sleepHours);
   text_layer_set_text(s_NUM_text_layer,buffer);
   text_layer_set_font(s_NUM_text_layer, fonts_get_system_font(FONT_KEY_BITHAM_30_BLACK));
   text_layer_set_text_alignment(s_NUM_text_layer, GTextAlignmentCenter);
