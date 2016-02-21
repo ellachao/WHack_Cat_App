@@ -14,7 +14,28 @@
     "dummy": 0
   },
   "resources": {
-    "media": []
+    "media": [
+    {
+        "type": "bitmap",
+        "name": "STEPS_IMAGE",
+        "file": "pawprint.png"
+      },
+      {
+        "type": "bitmap",
+        "name": "SLEEP_IMAGE",
+        "file": "sleepy.png"
+      },
+      {
+        "type": "bitmap",
+        "name": "WATER_IMAGE",
+        "file": "watercup.png"
+      },
+      {
+        "type": "raw",
+        "name": "CAT_IMAGE",
+        "file": "animated.png"
+      }
+    ]
   },
   "capabilities": ["health"]
 }
