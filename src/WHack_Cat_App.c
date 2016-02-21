@@ -4,10 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-#include "modules/health.h"
-
-#include "windows/main_window.h"
+#include "health/health.h"
 
 
 
@@ -62,8 +59,6 @@ static void main_window_load(Window *window) {
   		  
 static void select_click_handler(ClickRecognizerRef recognizer, void *context) { 
   health_init();
-  main_window_push();
-  main_window_update_ui();
 }
 
 
