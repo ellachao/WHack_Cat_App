@@ -1,4 +1,3 @@
-#include "health.h"
 
 static bool h_available;
 
