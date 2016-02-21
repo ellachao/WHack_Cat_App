@@ -1,4 +1,4 @@
-
+#include "sleep_window.h"
 #include "steps_window.h"
 
 static Window *s_steps_window;
@@ -80,6 +80,18 @@ static void steps_window_unload(Window *window) {
   text_layer_destroy(s_numOf_text_layer);
 }
 
+
+static void select_click_handler(ClickRecognizerRef recognizer, void *context) { 
+
+  sleep_window_push();
+}
+
+static void click_config_provider(void *context) {
+  window_single_click_subscribe(BUTTON_ID_SELECT, select_click_handler);
+}
+
+
+
 void step_window_push() {
   // Create main Window element and assign to pointer
   s_steps_window = window_create();
@@ -92,5 +104,7 @@ void step_window_push() {
 
   // Show the Window on the watch, with animated=true
   window_stack_push(s_steps_window, true);
+  window_set_click_config_provider(s_steps_window, click_config_provider);
 }
+
 
