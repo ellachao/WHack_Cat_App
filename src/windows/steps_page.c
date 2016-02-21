@@ -1,4 +1,8 @@
+
 #include "sleep_window.h"
+
+#include "../health/health.h"
+
 #include "steps_window.h"
 
 static Window *s_steps_window;
@@ -13,6 +17,7 @@ static void steps_window_load(Window *window) {
   // Get information about the Window
   Layer *window_layer = window_get_root_layer(window);
   GRect bounds = layer_get_bounds(window_layer);
+  static char buffer[8];
 
   // Create the TextLayers with specific bounds
   s_numOf_text_layer = text_layer_create(
@@ -43,7 +48,8 @@ static void steps_window_load(Window *window) {
       GRect(0, bounds.size.h-(icon_size+bottom_margin*2)*2, bounds.size.w, bounds.size.h/4));
   text_layer_set_background_color(s_NUM_text_layer, GColorClear);
   text_layer_set_text_color(s_NUM_text_layer, GColorBlack);
-  text_layer_set_text(s_NUM_text_layer, "99999"); // to be taken from data!!!
+  snprintf(buffer,sizeof(buffer),"%d",getMetric(HealthMetricStepCount));
+  text_layer_set_text(s_NUM_text_layer,buffer); // to be taken from data!!!
   text_layer_set_font(s_NUM_text_layer, fonts_get_system_font(FONT_KEY_BITHAM_30_BLACK));
   text_layer_set_text_alignment(s_NUM_text_layer, GTextAlignmentCenter);
 
