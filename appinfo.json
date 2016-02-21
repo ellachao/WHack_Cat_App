@@ -1,0 +1,20 @@
+{
+  "uuid": "608e1b90-3a1b-4323-9e6a-29fb9984502f",
+  "shortName": "WHack_Cat_App",
+  "longName": "WHack_Cat_App",
+  "companyName": "Whack",
+  "versionLabel": "1.0",
+  "sdkVersion": "3",
+  "targetPlatforms": ["aplite", "basalt", "chalk"],
+  "enableMultiJS": true,
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": []
+  },
+  "capabilities": ["health"]
+}
