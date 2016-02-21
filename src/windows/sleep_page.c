@@ -3,8 +3,8 @@
 
 static Window *s_sleep_window;
 static TextLayer *s_numOf_text_layer, *s_sleep_text_layer, *s_youveTaken_text_layer, *s_NUM_text_layer;
-static GBitmap *s_steps_icon_bitmap, *s_sleep_icon_bitmap, *s_water_icon_bitmap;
-static BitmapLayer *s_steps_icon_bitmap_layer, *s_sleep_icon_bitmap_layer, *s_water_icon_bitmap_layer;
+static GBitmap *s_steps_icon_bitmap, *s_sleep_icon_bitmap, *s_water_icon_bitmap, *s_cat_bitmap;
+static BitmapLayer *s_steps_icon_bitmap_layer, *s_sleep_icon_bitmap_layer, *s_water_icon_bitmap_layer, *s_cat_bitmap_layer;
 static const int icon_size = 30;
 static const int side_margin = 10;
 static const int bottom_margin = 5;
@@ -43,7 +43,7 @@ static void sleep_window_load(Window *window) {
   text_layer_set_text_alignment(s_youveTaken_text_layer, GTextAlignmentCenter);
   
   s_NUM_text_layer = text_layer_create(
-      GRect(0, bounds.size.h-(icon_size+bottom_margin*2)*2, bounds.size.w, bounds.size.h/4));
+  GRect(0, bounds.size.h-(icon_size+bottom_margin)*2, bounds.size.w, bounds.size.h/4));
   text_layer_set_background_color(s_NUM_text_layer, GColorClear);
   text_layer_set_text_color(s_NUM_text_layer, GColorBlack);
   snprintf(buffer,sizeof(buffer),"%d",sleepHours);
@@ -76,6 +76,11 @@ static void sleep_window_load(Window *window) {
   s_water_icon_bitmap_layer = bitmap_layer_create(GRect(bounds.size.w-icon_size-side_margin, bounds.size.h-icon_size-bottom_margin, icon_size, icon_size));
   bitmap_layer_set_bitmap(s_water_icon_bitmap_layer, s_water_icon_bitmap);
   layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(s_water_icon_bitmap_layer));
+
+  s_cat_bitmap = gbitmap_create_with_resource(RESOURCE_ID_CATSLEEP_IMAGE);
+  s_cat_bitmap_layer = bitmap_layer_create(GRect(bounds.size.w/2-25,text_layer_get_content_size(s_sleep_text_layer).h+text_layer_get_content_size(s_youveTaken_text_layer).h+5,icon_size + 20, icon_size + 20));
+  bitmap_layer_set_bitmap(s_cat_bitmap_layer, s_cat_bitmap);
+  layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(s_cat_bitmap_layer));
 
 }
 

@@ -31,9 +31,19 @@
         "file": "water.png"
       },
       {
-        "type": "raw",
+        "type": "bitmap",
         "name": "CAT_IMAGE",
         "file": "animated.png"
+      },
+      {
+        "type": "bitmap",
+        "name": "CATSLEEP_IMAGE", 
+        "file": "sleeping.png"
+      },
+      {
+        "type": "bitmap",
+        "name": "CATSTEPS_IMAGE",
+        "file": "walking.png"
       }
     ]
   },

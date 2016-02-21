@@ -13,8 +13,8 @@
 
 static Window *s_main_window;
 static TextLayer *s_title_layer;
-static GBitmap *s_steps_icon_bitmap, *s_sleep_icon_bitmap, *s_water_icon_bitmap;
-static BitmapLayer *s_steps_icon_bitmap_layer, *s_sleep_icon_bitmap_layer, *s_water_icon_bitmap_layer;
+static GBitmap *s_steps_icon_bitmap, *s_sleep_icon_bitmap, *s_water_icon_bitmap, *s_cat_bitmap;
+static BitmapLayer *s_steps_icon_bitmap_layer, *s_sleep_icon_bitmap_layer, *s_water_icon_bitmap_layer, *s_cat_bitmap_layer;
 static const int icon_size = 30;
 static const int side_margin = 10;
 static const int bottom_margin = 5;
@@ -58,6 +58,10 @@ static void main_window_load(Window *window) {
   bitmap_layer_set_bitmap(s_water_icon_bitmap_layer, s_water_icon_bitmap);
   layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(s_water_icon_bitmap_layer));
 
+  s_cat_bitmap = gbitmap_create_with_resource(RESOURCE_ID_CAT_IMAGE);
+  s_cat_bitmap_layer = bitmap_layer_create(GRect(bounds.size.w/2-25, bounds.size.h/2-20, icon_size + 20, icon_size + 20));
+  bitmap_layer_set_bitmap(s_cat_bitmap_layer, s_cat_bitmap);
+  layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(s_cat_bitmap_layer));
 }	  
   		  
 static void select_click_handler(ClickRecognizerRef recognizer, void *context) { 
