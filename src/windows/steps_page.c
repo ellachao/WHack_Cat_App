@@ -13,7 +13,7 @@ static void steps_window_load(Window *window) {
   // Get information about the Window
   Layer *window_layer = window_get_root_layer(window);
   GRect bounds = layer_get_bounds(window_layer);
-  char buffer[8];
+  static char buffer[8];
 
   // Create the TextLayers with specific bounds
   s_numOf_text_layer = text_layer_create(
