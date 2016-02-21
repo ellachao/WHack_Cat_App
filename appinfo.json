@@ -18,17 +18,17 @@
     {
         "type": "bitmap",
         "name": "STEPS_IMAGE",
-        "file": "pawprint.png"
+        "file": "paw.png"
       },
       {
         "type": "bitmap",
         "name": "SLEEP_IMAGE",
-        "file": "sleepy.png"
+        "file": "sleep.png"
       },
       {
         "type": "bitmap",
         "name": "WATER_IMAGE",
-        "file": "watercup.png"
+        "file": "water.png"
       },
       {
         "type": "raw",
